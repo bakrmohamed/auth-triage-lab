@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0",
+  "config": {
+    "window_seconds": 300,
+    "failure_threshold": 5,
+    "spray_users": 5
+  },
+  "summary": {
+    "lines_read": 14,
+    "valid_events": 14,
+    "invalid_records": 0,
+    "findings": 3,
+    "first_event": "2026-11-01T07:50:00Z",
+    "last_event": "2026-11-01T09:10:00Z"
+  },
+  "issues": [],
+  "findings": [
+    {
+      "rule": "repeated_failures",
+      "severity": "medium",
+      "key": {
+        "source_ip": "192.0.2.10",
+        "user": "demo-admin",
+        "service": "ssh"
+      },
+      "detected_at": "2026-11-01T08:04:00Z",
+      "reason": "At least 5 failures for one source/user/service within 300s.",
+      "evidence": [
+        {
+          "line": 3,
+          "timestamp": "2026-11-01T08:00:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 4,
+          "timestamp": "2026-11-01T08:01:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 5,
+          "timestamp": "2026-11-01T08:02:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 6,
+          "timestamp": "2026-11-01T08:03:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 7,
+          "timestamp": "2026-11-01T08:04:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        }
+      ],
+      "id": "A0001"
+    },
+    {
+      "rule": "success_after_failures",
+      "severity": "high",
+      "key": {
+        "source_ip": "192.0.2.10",
+        "user": "demo-admin",
+        "service": "ssh"
+      },
+      "detected_at": "2026-11-01T08:04:30Z",
+      "reason": "Success after 5 failures for this source/user/service within 300s; verify whether expected.",
+      "evidence": [
+        {
+          "line": 3,
+          "timestamp": "2026-11-01T08:00:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 4,
+          "timestamp": "2026-11-01T08:01:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 5,
+          "timestamp": "2026-11-01T08:02:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 6,
+          "timestamp": "2026-11-01T08:03:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 7,
+          "timestamp": "2026-11-01T08:04:00Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "failure"
+        },
+        {
+          "line": 8,
+          "timestamp": "2026-11-01T08:04:30Z",
+          "source_ip": "192.0.2.10",
+          "user": "demo-admin",
+          "service": "ssh",
+          "outcome": "success"
+        }
+      ],
+      "id": "A0002"
+    },
+    {
+      "rule": "multi_user_failures",
+      "severity": "medium",
+      "key": {
+        "source_ip": "198.51.100.20",
+        "service": "vpn"
+      },
+      "detected_at": "2026-11-01T09:04:00Z",
+      "reason": "Failures against 5 distinct users from one source/service within 300s; possible spray pattern, not proof.",
+      "evidence": [
+        {
+          "line": 9,
+          "timestamp": "2026-11-01T09:00:00Z",
+          "source_ip": "198.51.100.20",
+          "user": "demo-alpha",
+          "service": "vpn",
+          "outcome": "failure"
+        },
+        {
+          "line": 10,
+          "timestamp": "2026-11-01T09:01:00Z",
+          "source_ip": "198.51.100.20",
+          "user": "demo-bravo",
+          "service": "vpn",
+          "outcome": "failure"
+        },
+        {
+          "line": 11,
+          "timestamp": "2026-11-01T09:02:00Z",
+          "source_ip": "198.51.100.20",
+          "user": "demo-charlie",
+          "service": "vpn",
+          "outcome": "failure"
+        },
+        {
+          "line": 12,
+          "timestamp": "2026-11-01T09:03:00Z",
+          "source_ip": "198.51.100.20",
+          "user": "demo-delta",
+          "service": "vpn",
+          "outcome": "failure"
+        },
+        {
+          "line": 13,
+          "timestamp": "2026-11-01T09:04:00Z",
+          "source_ip": "198.51.100.20",
+          "user": "demo-echo",
+          "service": "vpn",
+          "outcome": "failure"
+        }
+      ],
+      "id": "A0003"
+    }
+  ]
+}
