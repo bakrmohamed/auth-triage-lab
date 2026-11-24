@@ -1,0 +1,4 @@
+{"timestamp": "2026-11-01T07:50:00Z", "source_ip": "192.0.2.50", "user": "demo-reader", "outcome": "success", "service": "ssh"}
+not json
+{"timestamp": "2026-11-01T07:50:00", "source_ip": "192.0.2.50", "user": "demo-reader", "outcome": "success", "service": "ssh"}
+{"timestamp": "2026-11-01T07:50:00Z", "source_ip": "192.0.2.50", "user": "demo-reader", "outcome": "unknown", "service": "ssh"}
